@@ -66,10 +66,10 @@ class _HomeState extends State<Home> {
                         context,
                         AppRoutes.product,
                         arguments: {
-                          'imgUrl': 'assets/products/i (1)-Picsart-BackgroundRemover.webp',
+                          'imgUrl': 'assets/products/i (${i+1})-Picsart-BackgroundRemover.webp',
                           'price': 99.99,
                           'stars': 4,
-                          'color': Colors.orange,
+                          'color': AppColors.colors[i],
                         },
                       );
 },
