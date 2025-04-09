@@ -136,9 +136,14 @@ class _ProductState extends State<Product> {
           ],
         ),)),
         
-        AppButtons(data: AppStrings.add, onPressed: (){})
+        AppButtons(data: AppStrings.add, onPressed: (){Navigator.pushNamed(context, AppRoutes.comment);})
         ],
       ),
+      bottomNavigationBar: BottomNavigationBar(items: [
+        BottomNavigationBarItem(icon: AppIcons.buy,label: ''),
+        BottomNavigationBarItem(icon: AppIcons.buy2,label: ''),
+        BottomNavigationBarItem(icon: AppIcons.favorite,label: ''),
+      ]),
     );
   }
 }

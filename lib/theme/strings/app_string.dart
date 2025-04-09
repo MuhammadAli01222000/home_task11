@@ -10,10 +10,13 @@ sealed class AppStrings{
   static const experience='Experience a new way\n     of shopping.';
   static const reviews='Reviews(45)';
   //! user name
-  static const jessie='Jessie Phelps';
-  static const lary='Larry May';
-  static const bradley='Bradley Parks';
-  static const jackson='Jackson Rogers';
+  static const listUser=[
+  'Jessie Phelps',
+  'Larry May',
+  'Bradley Parks',
+  'Jackson Rogers',
+  ];
+
   //!  productlist
 static const productList=[
   "New",
