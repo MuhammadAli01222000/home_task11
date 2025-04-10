@@ -29,15 +29,13 @@ class _AppButtonsState extends State<AppButtons> {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: 240,
-      height: 40,
-      child: Card(
-        color: AppColors.deepPurple,
-        child: OutlinedButton(
+      width: 300,
+      height: 60,
+      child: OutlinedButton(style: ButtonStyle(backgroundColor: WidgetStatePropertyAll(AppColors.deepPurple),shape: WidgetStatePropertyAll(RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)))),
           onPressed: widget.onPressed,
           child: Center(
             child: Text(widget.data, style: TextStyle(color: Colors.white)),
-          ),
+          
         ),
       ),
     );

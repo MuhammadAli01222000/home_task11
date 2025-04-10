@@ -6,6 +6,7 @@ import 'package:home_task11/theme/strings/app_string.dart';
 import 'package:home_task11/theme/widget/buttons.dart';
 
 import '../theme/colors/app_colors.dart';
+import '../theme/custom_app_bar/app_bar.dart';
 
 const productList = [
   'assets/products/i (1)-Picsart-BackgroundRemover.webp',
@@ -39,25 +40,10 @@ class Product extends StatefulWidget {
 class _ProductState extends State<Product> {
   @override
   Widget build(BuildContext context) {
-    int colors = widget.color.value;
     final String price=widget.price.toString();
 
     return Scaffold(
-      appBar: AppBar(
-        automaticallyImplyLeading: false,
-        leading: null,
-        title: Row(
-          children: [
-            IconButton(
-              onPressed: () {
-                Navigator.pop(context);
-              },
-              icon: AppIcons.back,
-            ),
-            Text(AppStrings.back, style: TextStyle(color: Colors.black)),
-          ],
-        ),
-      ),
+      appBar: buildAppBar(context,AppStrings.back),
       body: Column(
         children: [
           const Text(
@@ -67,7 +53,7 @@ class _ProductState extends State<Product> {
           const SizedBox(height: 15),
           SizedBox(
             width: 340,
-            height: 200,
+            height: 350,
             child: Stack(
               children: [
                 // Background card (e.g., image)
@@ -81,7 +67,7 @@ class _ProductState extends State<Product> {
                 ),
                 // Price text
                 Positioned(
-                  top: 10,
+                  top: 20,
                   right: 20,
                   left: 240,
                   child: SizedBox(
@@ -103,7 +89,7 @@ class _ProductState extends State<Product> {
           ),
 ///text furniture
           Padding(
-            padding: EdgeInsets.all(12),
+            padding: EdgeInsets.only(left: 100,top: 20),
             child: Center(
               child: Row(
                 children: [
@@ -126,8 +112,8 @@ class _ProductState extends State<Product> {
               ),
             ),
           ),
-
-        Padding(padding:EdgeInsets.all(12), child:SizedBox(child: Row(
+/// star
+        Padding(padding:EdgeInsets.only(left: 95,top: 15,bottom: 20), child:SizedBox(child: Row(
           children: [
             for (int i=0;i<widget.stars;i++)
               Icon(Icons.star,color: AppColors.yellow2,),
@@ -135,8 +121,23 @@ class _ProductState extends State<Product> {
 
           ],
         ),)),
-        
-        AppButtons(data: AppStrings.add, onPressed: (){Navigator.pushNamed(context, AppRoutes.comment);})
+
+          AppButtons(
+            data: AppStrings.add,
+            onPressed: () {
+              print('bosildi');
+
+              AppRoutes.cartPage(
+                context,
+                imgUrl: widget.imgUrl,
+                imgUrlIndex: 1,
+                productName: 'no name',
+                color: widget.color,
+                price:widget.price,
+              );
+            },
+          ),
+
         ],
       ),
       bottomNavigationBar: BottomNavigationBar(items: [
@@ -146,4 +147,5 @@ class _ProductState extends State<Product> {
       ]),
     );
   }
+
 }

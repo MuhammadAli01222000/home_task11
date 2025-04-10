@@ -9,6 +9,15 @@ sealed class AppStrings{
   static const back='Back';
   static const experience='Experience a new way\n     of shopping.';
   static const reviews='Reviews(45)';
+  static const youCart='Your Cart';
+  static const delete='Delete "Rain Backpack Paci..."';
+  static const are='Are you sure you to delete "Rains\n  Blackpack Pacific"from your cart?';
+static const cancel='Cancel';
+static const delete2='Delete';
+static const empty='Empty Cart';
+static const are2='Are you sure you want to delete all\n\t  items in your cart?';
+
+
   //! user name
   static const listUser=[
   'Jessie Phelps',
@@ -43,7 +52,7 @@ static const productList=[
 ];
 //!user coment
 static const comentName=[
-  'Great chair'
+  'Great chair',
 'Love nev chairs',
 'Place to relax in bedroom',
 'A bit of a wait , but worth it.',
