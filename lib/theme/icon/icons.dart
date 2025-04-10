@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import '../colors/app_colors.dart';
 sealed class AppIcons{
   static const search=Icon(Icons.search_rounded,size: 25,);
+  static const delete=Icon(Icons.delete,);
+  static const add=Icon(Icons.add);
   static const menu=Icon(Icons.widgets_rounded,size: 25,);
   static const back=Icon(Icons.arrow_back_ios_rounded,size: 25,);
   static const liner=Icon(Icons.linear_scale,size: 25,);

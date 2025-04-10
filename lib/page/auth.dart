@@ -25,8 +25,8 @@ class _AuthState extends State<Auth> {
             decoration: BoxDecoration(
               color: Colors.red,
               image: DecorationImage(
-                image: AssetImage('assets/img.png'),
-                fit: BoxFit.cover,
+                image: const AssetImage('assets/img.png'),
+                fit: BoxFit.fitHeight,
               ),
             ),
             child: Column(
@@ -37,7 +37,7 @@ class _AuthState extends State<Auth> {
                   child: Text(
                     AppStrings.shop,
                     style: TextStyle(
-                      color: AppColors.deepPurple,
+                      color: AppColors.white,
                       fontWeight: FontWeight.bold,
                       fontSize: 40,
                       letterSpacing: 25.0,
@@ -48,16 +48,28 @@ class _AuthState extends State<Auth> {
                 const Text(
                   AppStrings.amazing,
                   style: TextStyle(
-                    color: AppColors.deepPurple,
+                    color: AppColors.white,
                     fontWeight: FontWeight.w700,
                     fontSize: 40,
                   ),
                 ),
                 const SizedBox(height: 20),
-               const Text(AppStrings.experience,style: TextStyle(fontWeight: FontWeight.w400,color: AppColors.deepPurple,fontSize: 30),),
-              const  Spacer(),
-                AppButtons(data: AppStrings.explore, onPressed:(){Navigator.pushNamed(context, AppRoutes.home);}),
-               const SizedBox(height: 50,),
+                const Text(
+                  AppStrings.experience,
+                  style: TextStyle(
+                    fontWeight: FontWeight.w400,
+                    color: AppColors.white,
+                    fontSize: 30,
+                  ),
+                ),
+                const Spacer(),
+                AppButtons(
+                  data: AppStrings.explore,
+                  onPressed: () {
+                    Navigator.pushNamed(context, AppRoutes.home);
+                  },
+                ),
+                const SizedBox(height: 50),
               ],
             ),
           ),

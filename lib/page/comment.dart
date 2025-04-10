@@ -7,10 +7,10 @@ import '../theme/icon/icons.dart';
 import '../theme/strings/app_string.dart';
 
 const userImgList = [
-  'assets/user/img.png',
-  'assets/user/img_1.png',
-  'assets/user/img_2.png',
-  'assets/user/img_3.png',
+  "assets/user/user1.jpg",
+  "assets/user/user2.jpg",
+  "assets/user/user3.jpg",
+  "assets/user/user4.jpg",
 ];
 
 class Comment extends StatefulWidget {
@@ -21,58 +21,86 @@ class Comment extends StatefulWidget {
 }
 
 class _CommentState extends State<Comment> {
-  int index=0;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: _buildAppBar(context),
-      body: Container(
+      body: Padding(
+        padding: const EdgeInsets.all(16.0),
         child: Column(
           children: [
             const Text(
               AppStrings.reviews,
-              style: TextStyle(fontSize: 60, fontWeight: FontWeight.w500),
+              style: TextStyle(fontSize: 40, fontWeight: FontWeight.w500),
             ),
             const SizedBox(height: 15),
-            Column(
-              children: [
-                for (var i = 0; i < userImgList.length; i++)
-                  Row(
-                    children: [
-                      ClipOval(
-                        child: Image.asset(
-                          userImgList[i],
-                          fit: BoxFit.cover,
-                          width: 40,
-                          height: 40,
-                        ),
-                      ),
-                      SizedBox(width: 10),
-                      Column(
-                        children: [
-                          Text(
-                            AppStrings.listUser[i],
-                            style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              fontSize: 30,
-                            ),
-                          ),       Row(
+            Expanded(
+              child: ListView.builder(
+                itemCount: userImgList.length,
+                itemBuilder: (context, index) {
+                  return Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 12.0),
+                    child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        ClipOvalImg(i: index),
+                        const SizedBox(width: 12),
+                        Expanded(
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              for (var o in userImgList)
-                                Icon(Icons.star, color: AppColors.yellow2),
-                              Padding(padding: EdgeInsets.all(12)),
-                              Text(AppStrings.comentDataTime[1]),
-
+                              Text(
+                                AppStrings.listUser[index],
+                                style: const TextStyle(
+                                  fontWeight: FontWeight.w600,
+                                  fontSize: 20,
+                                ),
+                              ),
+                              const SizedBox(height: 4),
+                              Row(
+                                children: [
+                                  for (int j = 0; j < 5; j++)
+                                    Icon(
+                                      Icons.star,
+                                      size: 20,
+                                      color: j < 4
+                                          ? AppColors.yellow2
+                                          : AppColors.grey,
+                                    ),
+                                  const SizedBox(width: 8),
+                                  Text(
+                                    AppStrings.comentDataTime[index],
+                                    style: const TextStyle(
+                                      color: Colors.grey,
+                                      fontSize: 14,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                              const SizedBox(height: 8),
+                              Text(
+                                AppStrings.comentName[index],
+                                style: const TextStyle(
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.w500,
+                                ),
+                              ),
+                              const SizedBox(height: 4),
+                              Text(
+                                AppStrings.comment[index],
+                                style: const TextStyle(
+                                  fontSize: 15,
+                                  fontWeight: FontWeight.w300,
+                                ),
+                              ),
                             ],
                           ),
-
-                        ],
-                      ),
-                    ],
-                  ),
-                Text(AppRoutes.comment[index],style: TextStyle(fontWeight: FontWeight.w300),)
-
-              ],
+                        ),
+                      ],
+                    ),
+                  );
+                },
+              ),
             ),
           ],
         ),
@@ -83,7 +111,6 @@ class _CommentState extends State<Comment> {
   AppBar _buildAppBar(BuildContext context) {
     return AppBar(
       automaticallyImplyLeading: false,
-      leading: null,
       title: Row(
         children: [
           IconButton(
@@ -92,8 +119,28 @@ class _CommentState extends State<Comment> {
             },
             icon: AppIcons.back,
           ),
-          Text(AppStrings.back, style: TextStyle(color: Colors.black)),
+          const Text(
+            AppStrings.back,
+            style: TextStyle(color: Colors.black),
+          ),
         ],
+      ),
+    );
+  }
+}
+
+class ClipOvalImg extends StatelessWidget {
+  const ClipOvalImg({super.key, required this.i});
+  final int i;
+
+  @override
+  Widget build(BuildContext context) {
+    return ClipOval(
+      child: Image.asset(
+        userImgList[i],
+        fit: BoxFit.cover,
+        width: 40,
+        height: 40,
       ),
     );
   }

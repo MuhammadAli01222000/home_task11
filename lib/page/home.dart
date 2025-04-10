@@ -75,7 +75,7 @@ class _HomeState extends State<Home> {
 },
                     child: ImageCard(
                       imgUrl:imgUrl[i],
-                      price: 222.2,
+                      price: 22.2+i+(i*i),
                       color: AppColors.colors[i],
                     ),
                   ),

@@ -5,11 +5,11 @@ import 'package:home_task11/page/product.dart';
 import 'package:home_task11/theme/core/routes.dart';
 class App extends StatelessWidget {
   const App({super.key});
-
+//todo tegma
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      initialRoute: AppRoutes.home,
+      initialRoute: AppRoutes.auth,
       routes: AppRoutes.routes,
       onGenerateRoute: (settings) {
         if (settings.name == AppRoutes.product) {
