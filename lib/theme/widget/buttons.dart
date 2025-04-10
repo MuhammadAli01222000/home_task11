@@ -1,20 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:home_task11/theme/colors/app_colors.dart';
 import 'package:home_task11/theme/icon/icons.dart';
-const imgUrl=[
-  'assets/products/i (1)-Picsart-BackgroundRemover.webp',
-  'assets/products/i (2)-Picsart-BackgroundRemover.webp',
-  'assets/products/i (3)-Picsart-BackgroundRemover.webp',
-  'assets/products/i (4)-Picsart-BackgroundRemover.webp',
-  'assets/products/i (1)-Picsart-BackgroundRemover.webp',
-  'assets/products/i (2)-Picsart-BackgroundRemover.webp',
-  'assets/products/i (3)-Picsart-BackgroundRemover.webp',
-  'assets/products/i (4)-Picsart-BackgroundRemover.webp',
-  'assets/products/i (1)-Picsart-BackgroundRemover.webp',
-  'assets/products/i (2)-Picsart-BackgroundRemover.webp',
-  'assets/products/i (3)-Picsart-BackgroundRemover.webp',
-  'assets/products/i (4)-Picsart-BackgroundRemover.webp',
-];
+
 class AppButtons extends StatefulWidget {
   final String data;
   final void Function() onPressed;

@@ -110,6 +110,7 @@ class _CommentState extends State<Comment> {
 
   AppBar _buildAppBar(BuildContext context) {
     return AppBar(
+      backgroundColor: AppColors.white,
       automaticallyImplyLeading: false,
       title: Row(
         children: [

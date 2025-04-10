@@ -2,18 +2,23 @@ import 'package:flutter/material.dart';
 import 'package:home_task11/theme/colors/app_colors.dart';
 import 'package:home_task11/theme/strings/app_string.dart';
 
+import '../../page/empty_cart.dart';
+import '../core/routes.dart';
+
 class AppDialog extends StatelessWidget {
   final String str1;
   final String str2;
   final String str3;
   final String str4;
+  final void  Function () onPressed1;
+  final void  Function () onPressed2;
 
   const AppDialog({
     super.key,
     required this.str1,
     required this.str2,
     required this.str3,
-    required this.str4,
+    required this.str4, required this.onPressed1, required this.onPressed2,
   });
 
   @override
@@ -61,7 +66,7 @@ class AppDialog extends StatelessWidget {
                   Expanded(
                     child: ElevatedButton(
                       onPressed: () {
-                        Navigator.pop(context);
+                        onPressed2();
                       },
                       style: ElevatedButton.styleFrom(
                         backgroundColor: AppColors.deepPurple,
@@ -82,14 +87,16 @@ class AppDialog extends StatelessWidget {
   }
 }
 sealed class CustomDialog {
-  static void dialog(BuildContext context) {
+  static void dialog(BuildContext context ,void Function () onTap) {
     showDialog(
       context: context,
       builder: (context) => AppDialog(
-        str1: AppStrings.delete,
-        str2: AppStrings.are,
+        str1: AppStrings.empty,
+        str2: AppStrings.are2,
         str3: AppStrings.cancel,
-        str4: AppStrings.delete2,
+        str4: AppStrings.empty, onPressed1: () { }, onPressed2: () { Navigator.pushReplacement(context,  MaterialPageRoute<void>(
+        builder: (BuildContext context) => const EmptyCart(),
+      ),); },
       ),
     );
   }
@@ -98,10 +105,10 @@ sealed class CustomDialog {
     showDialog(
       context: context,
       builder: (context) => AppDialog(
-        str1: AppStrings.empty,
-        str2: AppStrings.are2,
+        str1: AppStrings.delete,
+        str2: AppStrings.are,
         str3: AppStrings.cancel,
-        str4: AppStrings.empty,
+        str4: AppStrings.delete2, onPressed1: () {  }, onPressed2: () { onTap(); },
       ),
     );
   }

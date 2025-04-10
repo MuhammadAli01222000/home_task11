@@ -6,7 +6,20 @@ import 'package:home_task11/theme/strings/app_string.dart';
 import 'package:home_task11/theme/widget/buttons.dart';
 
 import '../theme/colors/app_colors.dart';
-
+const imgUrl=[
+  'assets/products/i (1)-Picsart-BackgroundRemover.webp',
+  'assets/products/i (2)-Picsart-BackgroundRemover.webp',
+  'assets/products/i (3)-Picsart-BackgroundRemover.webp',
+  'assets/products/i (4)-Picsart-BackgroundRemover.webp',
+  'assets/products/i (1)-Picsart-BackgroundRemover.webp',
+  'assets/products/i (2)-Picsart-BackgroundRemover.webp',
+  'assets/products/i (3)-Picsart-BackgroundRemover.webp',
+  'assets/products/i (4)-Picsart-BackgroundRemover.webp',
+  'assets/products/i (1)-Picsart-BackgroundRemover.webp',
+  'assets/products/i (2)-Picsart-BackgroundRemover.webp',
+  'assets/products/i (3)-Picsart-BackgroundRemover.webp',
+  'assets/products/i (4)-Picsart-BackgroundRemover.webp',
+];
 class Home extends StatefulWidget {
   const Home({super.key});
 
@@ -66,7 +79,7 @@ class _HomeState extends State<Home> {
                         context,
                         AppRoutes.product,
                         arguments: {
-                          'imgUrl': 'assets/products/i (${i+1})-Picsart-BackgroundRemover.webp',
+                          'imgUrl': imgUrl[i],
                           'price': 99.99,
                           'stars': 4,
                           'color': AppColors.colors[i],

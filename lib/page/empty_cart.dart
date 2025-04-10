@@ -17,10 +17,13 @@ class _EmptyCartState extends State<EmptyCart> {
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
+         const  SizedBox(height: 150,),
  Center(child: Image.asset('assets/korzinka.jpg'),),
          const  Text("You cart is empty",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 35),),
          const  SizedBox(height: 16,),
           Text("Looking for ideas?",style: TextStyle(color: AppColors.grey,fontWeight: FontWeight.w400),),
+          const  SizedBox(height: 16,),
+
           AppButtons(data: "Explore New Products", onPressed: (){Navigator.pushNamed(context, AppRoutes.home);})
         ],
       ),
