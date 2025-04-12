@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:home_task11/page/comment.dart';
+import 'package:home_task11/model/models.dart';
 import 'package:home_task11/theme/core/routes.dart';
 import 'package:home_task11/theme/icon/icons.dart';
 import 'package:home_task11/theme/strings/app_string.dart';
@@ -8,46 +8,34 @@ import 'package:home_task11/theme/widget/buttons.dart';
 import '../theme/colors/app_colors.dart';
 import '../theme/custom_app_bar/app_bar.dart';
 
-const productList = [
-  'assets/products/i (1)-Picsart-BackgroundRemover.webp',
-  'assets/products/i (2)-Picsart-BackgroundRemover.webp',
-  'assets/products/i (3)-Picsart-BackgroundRemover.webp',
-  'assets/products/i (4)-Picsart-BackgroundRemover.webp',
-  //! copy
-  'assets/products/i (5)-Picsart-BackgroundRemover.webp',
-  'assets/products/i (2)-Picsart-BackgroundRemover.webp',
-  'assets/products/i (3)-Picsart-BackgroundRemover.webp',
-  'assets/products/i (4)-Picsart-BackgroundRemover.webp',
-];
-
 class Product extends StatefulWidget {
-  final String imgUrl;
-  final double price;
-  final int stars;
-  final Color color;
-  const Product({
-    super.key,
-    required this.imgUrl,
-    required this.price,
-    required this.stars,
-    required this.color,
-  });
-
+  final ModelProduct modelProduct;
+  const Product({super.key, required this.modelProduct});
   @override
   State<Product> createState() => _ProductState();
 }
 
 class _ProductState extends State<Product> {
+  bool isPressed = false;
+  int index = 1;
+
   @override
   Widget build(BuildContext context) {
-    final String price=widget.price.toString();
+    final String price = widget.modelProduct.price.toString();
+    final String description = widget.modelProduct.description;
+    final String imgUrl = widget.modelProduct.imgUrl;
+    final String productName = widget.modelProduct.productName;
+    final String productType = widget.modelProduct.productType;
+    int color = widget.modelProduct.color;
+    int stars = widget.modelProduct.stars;
+    int comments = widget.modelProduct.countComment;
 
     return Scaffold(
-      appBar: buildAppBar(context,AppStrings.back),
+      appBar: buildAppBar(context, AppStrings.back),
       body: Column(
         children: [
-          const Text(
-            AppStrings.orange,
+          Text(
+            productName,
             style: TextStyle(fontSize: 40, fontWeight: FontWeight.w600),
           ),
           const SizedBox(height: 15),
@@ -56,12 +44,24 @@ class _ProductState extends State<Product> {
             height: 350,
             child: Stack(
               children: [
-                // Background card (e.g., image)
+                Positioned(
+                  right: 20,top: 60,
+                  child: IconButton(
+                    onPressed: () {
+                      setState(() {
+                        isPressed = !isPressed;
+                      });
+                    },
+                    icon:
+                        isPressed ? AppIcons.favorite2
+                            : AppIcons.favorite,
+                  ),
+                ),
                 Positioned(
                   child: Card(
-                    color: widget.color,
+                    color: Color(color),
                     child: Center(
-                      child: Image.asset(widget.imgUrl, fit: BoxFit.cover),
+                      child: Image.asset(imgUrl, fit: BoxFit.cover),
                     ),
                   ),
                 ),
@@ -77,8 +77,12 @@ class _ProductState extends State<Product> {
                       color: Colors.white,
                       child: Center(
                         child: Text(
-                         r'$' '$price',
-                          style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
+                          r'$'
+                          '$price',
+                          style: TextStyle(
+                            color: Colors.black,
+                            fontWeight: FontWeight.bold,
+                          ),
                         ),
                       ),
                     ),
@@ -87,65 +91,74 @@ class _ProductState extends State<Product> {
               ],
             ),
           ),
-///text furniture
+
+          ///text furniture
           Padding(
-            padding: EdgeInsets.only(left: 100,top: 20),
+            padding: EdgeInsets.only(left: 100, top: 20),
             child: Center(
               child: Row(
                 children: [
-                  Text("Furniture", style: TextStyle(color: Colors.grey)),
+                  Text(productType, style: TextStyle(color: Colors.grey)),
                   GestureDetector(
-                    onTap: (){
+                    onTap: () {
                       Navigator.pushNamed(context, AppRoutes.comment);
                     },
                     child: Text(
-                      "124 views",
+                      " $comments views",
                       style: TextStyle(
                         color: AppColors.blue2,
                         decoration: TextDecoration.underline,
-                        decorationColor: AppColors.blue2
+                        decorationColor: AppColors.blue2,
                       ),
                     ),
                   ),
-
                 ],
               ),
             ),
           ),
-/// star
-        Padding(padding:EdgeInsets.only(left: 95,top: 15,bottom: 20), child:SizedBox(child: Row(
-          children: [
-            for (int i=0;i<widget.stars;i++)
-              Icon(Icons.star,color: AppColors.yellow2,),
-            if(widget.stars<5)               Icon(Icons.star,color: AppColors.grey,),
 
-          ],
-        ),)),
-
+          /// star
+          Padding(
+            padding: EdgeInsets.only(left: 95, top: 15, bottom: 10),
+            child: SizedBox(
+              child: Row(
+                children: [
+                  for (int i = 0; i < stars; i++)
+                    Icon(Icons.star, color: AppColors.yellow2),
+                  if (stars < 5) Icon(Icons.star, color: AppColors.grey),
+                ],
+              ),
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.only(bottom: 8.0),
+            child: Text(
+              description,
+              style: TextStyle(fontWeight: FontWeight.w400),
+            ),
+          ),
           AppButtons(
             data: AppStrings.add,
             onPressed: () {
-              print('bosildi');
-
               AppRoutes.cartPage(
                 context,
-                imgUrl: widget.imgUrl,
+                imgUrl: imgUrl,
                 imgUrlIndex: 1,
-                productName: 'no name',
-                color: widget.color,
-                price:widget.price,
+                productName: productName,
+                color: color,
+                price: widget.modelProduct.price,
               );
             },
           ),
-
         ],
       ),
-      bottomNavigationBar: BottomNavigationBar(items: [
-        BottomNavigationBarItem(icon: AppIcons.buy,label: ''),
-        BottomNavigationBarItem(icon: AppIcons.buy2,label: ''),
-        BottomNavigationBarItem(icon: AppIcons.favorite,label: ''),
-      ]),
+      bottomNavigationBar: BottomNavigationBar(
+        items: [
+          BottomNavigationBarItem(icon: AppIcons.buy, label: ''),
+          BottomNavigationBarItem(icon: AppIcons.buy2, label: ''),
+          BottomNavigationBarItem(icon: AppIcons.favorite, label: ''),
+        ],
+      ),
     );
   }
-
 }

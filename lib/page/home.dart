@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:home_task11/model/models.dart';
 import 'package:home_task11/page/product.dart';
+import 'package:home_task11/services/app_controller.dart';
 import 'package:home_task11/theme/core/routes.dart';
 import 'package:home_task11/theme/icon/icons.dart';
 import 'package:home_task11/theme/strings/app_string.dart';
@@ -28,6 +30,28 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+  @override
+  void initState() {
+    super.initState();
+initialize();
+
+  }
+List<ModelProduct> productList=[]; ///items copy qilish uchun
+  bool isLoading=false;/// for json
+  int index=0; ///counter
+
+  void initialize() async {
+    final controller = AppController();
+    final items = await controller.readData();
+
+    if (mounted) {
+      setState(() {
+        productList = items;
+        isLoading = false;
+      });
+    }
+  }
+
   final controller = ScrollController();
   @override
   void dispose() {
@@ -35,15 +59,17 @@ class _HomeState extends State<Home> {
     super.dispose();
     controller.dispose();
   }
-
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
       appBar: _buildAppBar(),
-      body: Column(
+      body: isLoading
+          ? Center(child: CircularProgressIndicator()) // <-- LOADING indicator
+          : Column(
         children: [
           SizedBox(
-            height: 20,
+            height: 40,
             child: CustomScrollView(
               controller: controller,
               scrollDirection: Axis.horizontal,
@@ -67,35 +93,30 @@ class _HomeState extends State<Home> {
           Expanded(
             child: GridView(
               scrollDirection: Axis.vertical,
-              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2, crossAxisSpacing: 10,
+              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 2,
+                crossAxisSpacing: 10,
                 mainAxisSpacing: 10,
-              
               ),
               children: [
-                for (int i = 0; i <imgUrl.length; i++)
+                for (int i = 0; i < productList.length; i++)
                   GestureDetector(
-                    onTap: (){
-                      Navigator.pushNamed(
-                        context,
-                        AppRoutes.product,
-                        arguments: {
-                          'imgUrl': imgUrl[i],
-                          'price': 99.99,
-                          'stars': 4,
-                          'color': AppColors.colors[i],
-                        },
+                    onTap: () {
+                      Navigator.of(context).pushReplacement(
+                        MaterialPageRoute(
+                          builder: (_) => Product(modelProduct:  productList[i],),
+                        ),
                       );
-},
+                    },
                     child: ImageCard(
-                      imgUrl:imgUrl[i],
-                      price: 22.2+i+(i*i),
+                      imgUrl: productList[i].imgUrl,
+                      price: productList[i].price,
                       color: AppColors.colors[i],
                     ),
                   ),
               ],
             ),
           ),
-
         ],
       ),
     );

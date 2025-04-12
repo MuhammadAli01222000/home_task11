@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:home_task11/theme/colors/app_colors.dart';
-import 'package:home_task11/theme/core/routes.dart';
-import 'package:home_task11/theme/widget/buttons.dart';
 
 import '../theme/icon/icons.dart';
 import '../theme/strings/app_string.dart';
@@ -24,6 +22,7 @@ class _CommentState extends State<Comment> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: AppColors.white,
       appBar: _buildAppBar(context),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
@@ -63,9 +62,10 @@ class _CommentState extends State<Comment> {
                                     Icon(
                                       Icons.star,
                                       size: 20,
-                                      color: j < 4
-                                          ? AppColors.yellow2
-                                          : AppColors.grey,
+                                      color:
+                                          j < 4
+                                              ? AppColors.yellow2
+                                              : AppColors.grey,
                                     ),
                                   const SizedBox(width: 8),
                                   Text(
@@ -120,10 +120,7 @@ class _CommentState extends State<Comment> {
             },
             icon: AppIcons.back,
           ),
-          const Text(
-            AppStrings.back,
-            style: TextStyle(color: Colors.black),
-          ),
+          const Text(AppStrings.back, style: TextStyle(color: Colors.black)),
         ],
       ),
     );

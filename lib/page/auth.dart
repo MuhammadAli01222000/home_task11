@@ -31,24 +31,24 @@ class _AuthState extends State<Auth> {
             ),
             child: Column(
               children: [
-                const SizedBox(height: 40),
+                const SizedBox(height: 100),
                 const Align(
                   alignment: Alignment.topCenter,
                   child: Text(
                     AppStrings.shop,
                     style: TextStyle(
-                      color: AppColors.white,
+                      color: Colors.redAccent,
                       fontWeight: FontWeight.bold,
                       fontSize: 40,
                       letterSpacing: 25.0,
                     ),
                   ),
                 ),
-                const SizedBox(height: 40),
+                const SizedBox(height: 100),
                 const Text(
                   AppStrings.amazing,
                   style: TextStyle(
-                    color: AppColors.white,
+                    color: Colors.white70,
                     fontWeight: FontWeight.w700,
                     fontSize: 40,
                   ),
@@ -58,7 +58,7 @@ class _AuthState extends State<Auth> {
                   AppStrings.experience,
                   style: TextStyle(
                     fontWeight: FontWeight.w400,
-                    color: AppColors.white,
+                    color: Colors.white70,
                     fontSize: 30,
                   ),
                 ),
@@ -66,7 +66,7 @@ class _AuthState extends State<Auth> {
                 AppButtons(
                   data: AppStrings.explore,
                   onPressed: () {
-                    Navigator.pushNamed(context, AppRoutes.home);
+                    Navigator.pushNamed(context, AppRoutes.signIn);
                   },
                 ),
                 const SizedBox(height: 50),

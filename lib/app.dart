@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:home_task11/model/models.dart';
 import 'package:home_task11/page/auth.dart';
 import 'package:home_task11/page/home.dart';
 import 'package:home_task11/page/product.dart';
@@ -16,10 +17,7 @@ class App extends StatelessWidget {
           final args = settings.arguments as Map<String, dynamic>;
           return MaterialPageRoute(
             builder: (context) => Product(
-              imgUrl: args['imgUrl'],
-              price: args['price'],
-              stars: args['stars'],
-              color: args['color'],
+             modelProduct: ModelProduct(stars: 1, countComment: 1, price: 1, imgUrl: '', productName: '', productType: 'productType', description: 'description', color: 0),
             ),
           );
         }

@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:home_task11/theme/colors/app_colors.dart';
 import 'package:home_task11/theme/core/routes.dart';
 import 'package:home_task11/theme/widget/buttons.dart';
+
+import 'home.dart';
 class EmptyCart extends StatefulWidget {
   const EmptyCart({super.key});
 
@@ -24,7 +26,12 @@ class _EmptyCartState extends State<EmptyCart> {
           Text("Looking for ideas?",style: TextStyle(color: AppColors.grey,fontWeight: FontWeight.w400),),
           const  SizedBox(height: 16,),
 
-          AppButtons(data: "Explore New Products", onPressed: (){Navigator.pushNamed(context, AppRoutes.home);})
+          AppButtons(data: "Explore New Products", onPressed: (){Navigator. pushReplacement<void, void>(
+            context,
+            MaterialPageRoute<void>(
+              builder: (BuildContext context) => const Home(),
+            ),
+          );})
         ],
       ),
     );

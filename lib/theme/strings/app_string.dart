@@ -15,6 +15,17 @@ sealed class AppStrings{
 static const cancel='Cancel';
 static const delete2='Delete';
 static const empty='Empty Cart';
+static const signIn='Sign In';
+static const signUp='Sign Up';
+static const signInFacebook='Sign in  with Facebook';
+static const email='Email';
+static const dont="Don't have an account?";
+static const password='Password';
+static const forgotPassword='Forgot Password';
+static const continue1='Continue';
+static const congratulations='Congratulations';
+static const you='Your account has been\n successfully created.';
+static const shoppin='Shoppin will not post on your behalf on Facebook.';
 static const are2='Are you sure you want to delete all\n\t  items in your cart?';
 
 
@@ -35,19 +46,17 @@ static const productList=[
   "Book",
   "Auto",
   "Technologies",
-  "Smart Tv",
+  "Refrigerator",
   "Garden",
-  "Mobile",
+  "Phones and Tablets",
   ///
-  "Flower",
+  "Home",
   "Car",
   "For Student",
   "IT",
-  "Wi fi",
   "Sport",
   "Computers",
   "For Baby",
-  "Busines book",
   "Iphone",
 ];
 //!user coment

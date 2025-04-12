@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:home_task11/model/models.dart';
 import 'package:home_task11/theme/colors/app_colors.dart';
 import 'package:home_task11/theme/core/routes.dart';
 import 'package:home_task11/theme/custom_app_bar/app_bar.dart';
@@ -10,18 +11,10 @@ import '../theme/icon/icons.dart';
 import '../theme/widget/you_cart.dart';
 
 class Cart extends StatefulWidget {
-  final double price;
-  final Color color;
-  final String imgUrl;
-  final int imgUrlIndex;
-  final String productName;
+final  ModelProduct modelProduct;
   const Cart({
     super.key,
-    required this.imgUrl,
-    required this.imgUrlIndex,
-    required this.productName,
-    required this.color,
-    required this.price,
+    required this.modelProduct
   });
   @override
   State<Cart> createState() => _CartState();
@@ -32,13 +25,21 @@ class _CartState extends State<Cart> {
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
   }
 
-  int count = 1;
+  int count = 0;
   @override
   Widget build(BuildContext context) {
+    final double price = widget.modelProduct.price;
+    double sum=0;
+    sum+=price*count;
+    final String imgUrl = widget.modelProduct.imgUrl;
+    final String productName = widget.modelProduct.productName;
+    final String productType = widget.modelProduct.productType;
+    int color = widget.modelProduct.color;
+    int stars = widget.modelProduct.stars;
+    int comments = widget.modelProduct.countComment;
     return Scaffold(
       appBar: buildAppBar(context, AppStrings.back),
       body:
@@ -52,7 +53,7 @@ class _CartState extends State<Cart> {
                   ),
                   Align(
                     alignment: Alignment(-0.8, 0),
-                    child: Text('${widget.imgUrlIndex} items'),
+                    child: Text('${count} items'),
                   ),
                   const SizedBox(height: 20),
                   const Divider(height: 3, color: AppColors.grey),
@@ -65,19 +66,12 @@ class _CartState extends State<Cart> {
                           padding: EdgeInsets.all(12),
                           child: Row(
                             children: [
-                              SmallImageCard(widget: widget),
+                              SmallImageCard(widget: widget, color: widget.modelProduct.color,),
                               SizedBox(
                                 width: 220,
                                 height: 75,
                                 child: Column(
                                   children: [
-                                    Text(
-                                      "Rains Backpack pacific",
-                                      style: TextStyle(
-                                        fontWeight: FontWeight.bold,
-                                        fontSize: 15,
-                                      ),
-                                    ),
                                     const SizedBox(height: 5),
                                     Row(
                                       children: [
@@ -131,7 +125,7 @@ class _CartState extends State<Cart> {
                                         Expanded(
                                           child: Text(
                                             r'$'
-                                            "${widget.price * count.toInt()}..",
+                                            "${price * count}..",
                                           ),
                                         ),
                                       ],
@@ -150,7 +144,7 @@ class _CartState extends State<Cart> {
                     data:
                         'Check out\n'
                         r'$'
-                        '${widget.price + widget.price.round()}',
+                        '$sum',
                     onPressed: () {
                       CustomDialog.dialog2(context, () {});
                       Navigator.pushNamed(context, AppRoutes.emptyCart);
@@ -165,7 +159,8 @@ class _CartState extends State<Cart> {
 }
 
 class SmallImageCard extends StatelessWidget {
-  const SmallImageCard({super.key, required this.widget});
+  final int color;
+  const SmallImageCard({super.key, required this.widget, required this.color});
 
   final Cart widget;
 
@@ -175,8 +170,8 @@ class SmallImageCard extends StatelessWidget {
       width: 100,
       height: 100,
       child: Card(
-        color: widget.color,
-        child: Center(child: Image.asset(widget.imgUrl)),
+        color:Color(color),
+        child: Center(child: Image.asset(widget.modelProduct.imgUrl)),
       ),
     );
   }
