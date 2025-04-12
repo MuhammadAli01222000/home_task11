@@ -1,0 +1,102 @@
+[
+  {
+    "productName": "divan",
+    "productType": "Furniture",
+    "imgUrl": "assets/products/i (1)-Picsart-BackgroundRemover.webp",
+    "description": "yumshoq va qulay",
+    "price": 109.0,
+    "color": 204255153,
+    "star": 4,
+    "comment": 124
+  },
+  {
+    "productName": "Bicycle for Mountain",
+    "productType": "Sport",
+    "imgUrl": "assets/products/i (2)-Picsart-BackgroundRemover.webp",
+    "description": "Bicycle",
+    "price": 1000.0,
+    "color": 102204255,
+    "star": 5,
+    "comment": 1424
+  },
+  {
+    "productName": "Thermos",
+    "productType": "Home",
+    "imgUrl": "assets/products/i (3)-Picsart-BackgroundRemover.webp",
+    "description": "Thermos capacity 900ml",
+    "price": 11.0,
+    "color": 255255204,
+    "star": 2,
+    "comment": 3
+  },
+  {
+    "productName": "Wallet",
+    "productType": "Fashion",
+    "imgUrl": "assets/products/i (4)-Picsart-BackgroundRemover.webp",
+    "description": "Wallet for man made of natural leather",
+    "price": 41.0,
+    "color": 255255204,
+    "star": 4,
+    "comment": 3
+  },
+  {
+    "productName": "Smart Watch",
+    "productType": "Electronic",
+    "imgUrl": "assets/products/img.png",
+    "description": "Water prof smart watch",
+    "price": 421.0,
+    "color": 255235204,
+    "star": 5,
+    "comment": 23
+  },
+  {
+    "productName": "Book ",
+    "productType": "Book",
+    "imgUrl": "assets/products/img_1.png",
+    "description": "History book",
+    "price": 991.0,
+    "color": 255256204,
+    "star": 4,
+    "comment": 31
+  },
+  {
+    "productName": "Black Gentra",
+    "productType": "Auto",
+    "imgUrl": "assets/products/img_2.png",
+    "description": "Sale for GM 99%",
+    "price": 1.0,
+    "color": 225256204,
+    "star": 0,
+    "comment": 0
+  },
+  {
+    "productName": "Refrigerator ",
+    "productType": "Refrigerator",
+    "imgUrl": "assets/products/img_3.png",
+    "description": "Samsung refrigerator capacity 400 L",
+    "price": 1441.0,
+    "color": 225256204,
+    "star": 0,
+    "comment": 0
+  },
+  {
+    "productName": "Garden technologia ",
+    "productType": "Garden",
+    "imgUrl": "assets/products/img_4.png",
+    "description": "Smart Garden Technology: Irrigation Systems, Lighting, and ",
+    "price": 300.0,
+    "color": 232256204,
+    "star": 4,
+    "comment": 10
+  },
+  {
+    "productName": "Phones  ",
+    "productType": "Phones and Tablets",
+    "imgUrl": "assets/products/img_5.png",
+    "description": "Phones and Tablets last model",
+    "price": 800.0,
+    "color": 232256204,
+    "star": 4,
+    "comment": 10
+  }
+]
