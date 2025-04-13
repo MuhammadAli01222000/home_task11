@@ -8,6 +8,7 @@ class AppTextField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextField(
+      controller: TextEditingController(),
       decoration: InputDecoration(
         hintText: hintText,
         border: const UnderlineInputBorder(),

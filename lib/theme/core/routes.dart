@@ -8,6 +8,11 @@ import 'package:home_task11/page/sign_in.dart';
 import 'package:home_task11/page/sign_up.dart';
 
 import '../../model/models.dart';
+import '../../page/password_reset.dart';
+import '../../page/password_saved.dart';
+import '../../page/success.dart';
+import '../../page/to_instructions.dart';
+import '../../page/to_new_password.dart';
 sealed class AppRoutes{
   static const auth="";
   static const home="home";
@@ -17,6 +22,11 @@ sealed class AppRoutes{
   static const emptyCart="emptyCart";
   static const signIn="signIn";
   static const signUp="signUp";
+  static const passwordReset="passWordReset";
+  static const toInstructions="toInstructions";
+  static const toNewPassword="toNewPassword";
+  static const success="Success";
+  static const passwordSaved="passwordSaved";
   static Map<String, Widget Function(BuildContext)> routes =  <String, WidgetBuilder>{
     auth: (context) =>const Auth(),
     home: (context) =>const Home(),
@@ -24,6 +34,11 @@ sealed class AppRoutes{
     emptyCart: (context) =>const EmptyCart(),
     signIn: (context) =>const SignIn(),
     signUp: (context) =>const SignUp(),
+    passwordReset:(context)=>const PasswordReset(),
+    passwordSaved:(context)=>const PasswordSaved(),
+    toInstructions:(context)=>const ToInstructions(),
+    toNewPassword:(context)=>const ToNewPassword(),
+    success:(context)=>const Success(),
     cart: (context) {
       final args = ModalRoute.of(context)!.settings.arguments as Map<String, dynamic>;
       return Cart(

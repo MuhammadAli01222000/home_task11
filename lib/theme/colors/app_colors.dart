@@ -5,6 +5,7 @@ sealed class AppColors {
   static const red = Colors.redAccent;
   static const blue2 = Color(0xFF9ACBD0);
   static const yellow2 = Color(0xFFFFDDAB);
+  static const yellow3 =     Color(0xEEF4CF9F);
   static const white = Colors.white;
   static const green2 = Color(0xFFA0C878);
   static const pink2 = Color(0xFFFFC1B4);
