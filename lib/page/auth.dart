@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:home_task11/page/home.dart';
+import 'package:home_task11/page/sign_in.dart';
 import 'package:home_task11/theme/colors/app_colors.dart';
 import 'package:home_task11/theme/core/routes.dart';
 import 'package:home_task11/theme/strings/app_string.dart';
@@ -23,28 +24,28 @@ class _AuthState extends State<Auth> {
             width: size.width - 1,
             height: size.height - 1,
             decoration: BoxDecoration(
-              color: Colors.red,
+              color: Colors.deepPurpleAccent.shade100,
               image: DecorationImage(
-                image: const AssetImage('assets/img.png'),
-                fit: BoxFit.fitHeight,
+                image: const AssetImage('assets/img.png',),
+
               ),
             ),
             child: Column(
               children: [
-                const SizedBox(height: 100),
+                const SizedBox(height: 45),
                 const Align(
                   alignment: Alignment.topCenter,
                   child: Text(
                     AppStrings.shop,
                     style: TextStyle(
-                      color: Colors.redAccent,
+                      color: AppColors.white,
                       fontWeight: FontWeight.bold,
                       fontSize: 40,
                       letterSpacing: 25.0,
                     ),
                   ),
                 ),
-                const SizedBox(height: 100),
+                const SizedBox(height: 5),
                 const Text(
                   AppStrings.amazing,
                   style: TextStyle(
@@ -53,7 +54,7 @@ class _AuthState extends State<Auth> {
                     fontSize: 40,
                   ),
                 ),
-                const SizedBox(height: 20),
+                const SizedBox(height: 15),
                 const Text(
                   AppStrings.experience,
                   style: TextStyle(
@@ -66,8 +67,12 @@ class _AuthState extends State<Auth> {
                 AppButtons(
                   data: AppStrings.explore,
                   onPressed: () {
-                    Navigator.pushNamed(context, AppRoutes.signIn);
-                  },
+                    Navigator. pushReplacement<void, void>(
+                      context,
+                      MaterialPageRoute<void>(
+                        builder: (BuildContext context) => const SignIn(),
+                      ),
+                    );                  },
                 ),
                 const SizedBox(height: 50),
               ],

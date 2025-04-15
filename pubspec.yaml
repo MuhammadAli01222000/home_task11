@@ -31,4 +31,5 @@ flutter:
      - assets/products/
      - assets/user/
      - assets/korzinka.jpg
+     - assets/cart_icons/
      - assets/json/product.json  #json file

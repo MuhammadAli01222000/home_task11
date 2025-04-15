@@ -40,9 +40,32 @@ static const congratulations='Congratulations';
 static const you='Your account has been\n successfully created.';
 static const shoppin='Shoppin will not post on your behalf on Facebook.';
 static const are2='Are you sure you want to delete all\n\t  items in your cart?';
+///[to shipping Address page]
+static const shipping=' Shipping Address';
+static const country='Country';
+static const town='Town / City';
+static const postcode='Postcode';
+static const street='Street';
+static const hintText='This will be your defautl shipping addres.\nThis will be your defautl billing address.';
+static const next='Next';
+///[payment page]
+  static const payment="Payment Method";
+  static const cardNumber="Card Number";
+  static const expiryData="Expiry Data";
+  static const cvc="CVC";
+  static const info="Set as your default payment method";
+///[checkOut page]
+  static const checkout="Checkout";
+  static const change="Change";
+  static const shippingAdress="Shipping Adress";
+  static const payment2="Payment ";
+  static const placeOrder="Place Order ";
+  static const reviewProducts="Review Products ";
+  ///[congratulations page]
+  static const congratulationsInfo="Your order has been successfully\nplaced.";
+static const continue3='Continue Shopping';
 
-
-  //! user name
+///! user name
   static const listUser=[
   'Jessie Phelps',
   'Larry May',

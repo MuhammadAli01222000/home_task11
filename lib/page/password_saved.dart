@@ -49,8 +49,6 @@ class _PasswordSavedState extends State<PasswordSaved> {
                 Navigator.pushNamed(context, AppRoutes.signIn);
               },
             ),
-
-            /// email yozsh kerak
           ],
         ),
       ),

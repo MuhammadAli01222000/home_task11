@@ -49,10 +49,7 @@ class _SignUpState extends State<SignUp> {
                   onTap: () {
                     Navigator.pushNamed(context, AppRoutes.signIn);
                   },
-                  child: Text(
-                    AppStrings.signIn,
-                    style: TextStyle(color: AppColors.deepPurple),
-                  ),
+                  child: Text(AppStrings.signIn,style: TextStyle(color: AppColors.blue,decoration: TextDecoration.underline),),
                 ),
               ],
             ),

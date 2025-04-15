@@ -34,12 +34,7 @@ class _CartState extends State<Cart> {
     final double price = widget.modelProduct.price;
     double sum=0;
     sum+=price*count;
-    final String imgUrl = widget.modelProduct.imgUrl;
-    final String productName = widget.modelProduct.productName;
-    final String productType = widget.modelProduct.productType;
-    int color = widget.modelProduct.color;
-    int stars = widget.modelProduct.stars;
-    int comments = widget.modelProduct.countComment;
+   
     return Scaffold(
       appBar: buildAppBar(context, AppStrings.back),
       body:
@@ -147,7 +142,7 @@ class _CartState extends State<Cart> {
                         '$sum',
                     onPressed: () {
                       CustomDialog.dialog2(context, () {});
-                      Navigator.pushNamed(context, AppRoutes.emptyCart);
+                      Navigator.pushNamed(context, AppRoutes.toShippingAddress);
                     },
                   ),
                   const SizedBox(height: 25),

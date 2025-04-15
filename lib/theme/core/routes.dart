@@ -2,17 +2,21 @@ import'package:flutter/material.dart';
 import 'package:home_task11/page/auth.dart';
 import 'package:home_task11/page/cart.dart';
 import 'package:home_task11/page/comment.dart';
+import 'package:home_task11/page/confirmation.dart';
 import 'package:home_task11/page/empty_cart.dart';
 import 'package:home_task11/page/home.dart';
+import 'package:home_task11/page/payment.dart';
 import 'package:home_task11/page/sign_in.dart';
 import 'package:home_task11/page/sign_up.dart';
 
 import '../../model/models.dart';
+import '../../page/congratulations_info.dart';
 import '../../page/password_reset.dart';
 import '../../page/password_saved.dart';
 import '../../page/success.dart';
 import '../../page/to_instructions.dart';
 import '../../page/to_new_password.dart';
+import '../../page/to_shipping_address.dart';
 sealed class AppRoutes{
   static const auth="";
   static const home="home";
@@ -27,6 +31,10 @@ sealed class AppRoutes{
   static const toNewPassword="toNewPassword";
   static const success="Success";
   static const passwordSaved="passwordSaved";
+  static const toShippingAddress="toShippingAddress";
+  static const payment="payment";
+  static const checkOut="checkOut";
+  static const congratulationsInfo="congratulationsInfo";
   static Map<String, Widget Function(BuildContext)> routes =  <String, WidgetBuilder>{
     auth: (context) =>const Auth(),
     home: (context) =>const Home(),
@@ -39,6 +47,11 @@ sealed class AppRoutes{
     toInstructions:(context)=>const ToInstructions(),
     toNewPassword:(context)=>const ToNewPassword(),
     success:(context)=>const Success(),
+    toShippingAddress:(context)=>const ToShippingAddress(),
+    payment:(context)=>const Payment(),
+    checkOut:(context)=>const CheckOut(),
+    congratulationsInfo:(context)=>const CongratulationsInfo(),
+
     cart: (context) {
       final args = ModalRoute.of(context)!.settings.arguments as Map<String, dynamic>;
       return Cart(

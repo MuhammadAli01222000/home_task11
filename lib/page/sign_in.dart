@@ -6,6 +6,8 @@ import 'package:home_task11/theme/strings/app_string.dart';
 import 'package:home_task11/theme/widget/buttons.dart';
 import 'package:home_task11/theme/widget/text_field.dart';
 
+import 'home.dart';
+
 class SignIn extends StatefulWidget {
   const SignIn({super.key});
 
@@ -37,8 +39,12 @@ class _SignInState extends State<SignIn> {
             AppTextField(hintText: AppStrings.password),
             const SizedBox(height: AppDimens.d25),
             AppButtons(data: AppStrings.signIn, onPressed: () {
-              Navigator.pushNamed(context,AppRoutes.home);
-
+              Navigator. pushReplacement<void, void>(
+                context,
+                MaterialPageRoute<void>(
+                  builder: (BuildContext context) => const Home(),
+                ),
+              );
             }),
             const SizedBox(height: AppDimens.d12),
             AppOutlineButton(
@@ -52,7 +58,7 @@ class _SignInState extends State<SignIn> {
                 onTap: () {
                   Navigator.pushNamed(context, AppRoutes.signUp);
                 },
-                child: Text(AppStrings.signUp),
+                child: Text(AppStrings.signUp,style: TextStyle(color: AppColors.blue,decoration: TextDecoration.underline),),
               ),
             ),
             const SizedBox(height: AppDimens.d180),
@@ -60,7 +66,6 @@ class _SignInState extends State<SignIn> {
               alignment: Alignment.bottomRight,
               child: GestureDetector(
                 onTap: () {
-                  print('bosildi sign in');
                   Navigator.pushNamed(context,AppRoutes.passwordReset);
                 },
                 child: Text(

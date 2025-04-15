@@ -2,26 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:home_task11/model/models.dart';
 import 'package:home_task11/page/product.dart';
 import 'package:home_task11/services/app_controller.dart';
-import 'package:home_task11/theme/core/routes.dart';
 import 'package:home_task11/theme/icon/icons.dart';
 import 'package:home_task11/theme/strings/app_string.dart';
 import 'package:home_task11/theme/widget/buttons.dart';
 
 import '../theme/colors/app_colors.dart';
-const imgUrl=[
-  'assets/products/i (1)-Picsart-BackgroundRemover.webp',
-  'assets/products/i (2)-Picsart-BackgroundRemover.webp',
-  'assets/products/i (3)-Picsart-BackgroundRemover.webp',
-  'assets/products/i (4)-Picsart-BackgroundRemover.webp',
-  'assets/products/i (1)-Picsart-BackgroundRemover.webp',
-  'assets/products/i (2)-Picsart-BackgroundRemover.webp',
-  'assets/products/i (3)-Picsart-BackgroundRemover.webp',
-  'assets/products/i (4)-Picsart-BackgroundRemover.webp',
-  'assets/products/i (1)-Picsart-BackgroundRemover.webp',
-  'assets/products/i (2)-Picsart-BackgroundRemover.webp',
-  'assets/products/i (3)-Picsart-BackgroundRemover.webp',
-  'assets/products/i (4)-Picsart-BackgroundRemover.webp',
-];
 class Home extends StatefulWidget {
   const Home({super.key});
 
@@ -65,7 +50,7 @@ List<ModelProduct> productList=[]; ///items copy qilish uchun
     return Scaffold(
       appBar: _buildAppBar(),
       body: isLoading
-          ? Center(child: CircularProgressIndicator()) // <-- LOADING indicator
+          ? Center(child: CircularProgressIndicator())
           : Column(
         children: [
           SizedBox(
@@ -102,7 +87,7 @@ List<ModelProduct> productList=[]; ///items copy qilish uchun
                 for (int i = 0; i < productList.length; i++)
                   GestureDetector(
                     onTap: () {
-                      Navigator.of(context).pushReplacement(
+                      Navigator.of(context).push(
                         MaterialPageRoute(
                           builder: (_) => Product(modelProduct:  productList[i],),
                         ),

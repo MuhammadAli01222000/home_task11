@@ -7,7 +7,6 @@ import 'package:home_task11/theme/widget/buttons.dart';
 
 import '../theme/colors/app_colors.dart';
 import '../theme/custom_app_bar/app_bar.dart';
-
 class Product extends StatefulWidget {
   final ModelProduct modelProduct;
   const Product({super.key, required this.modelProduct});
@@ -17,7 +16,7 @@ class Product extends StatefulWidget {
 
 class _ProductState extends State<Product> {
   bool isPressed = false;
-  int index = 1;
+ int  currentIndex=0;
 
   @override
   Widget build(BuildContext context) {
@@ -36,7 +35,7 @@ class _ProductState extends State<Product> {
         children: [
           Text(
             productName,
-            style: TextStyle(fontSize: 40, fontWeight: FontWeight.w600),
+            style: TextStyle(fontSize: 30, fontWeight: FontWeight.w600),
           ),
           const SizedBox(height: 15),
           SizedBox(
@@ -153,12 +152,39 @@ class _ProductState extends State<Product> {
         ],
       ),
       bottomNavigationBar: BottomNavigationBar(
+        currentIndex: currentIndex,
+        onTap: (index) {
+          setState(() {
+            currentIndex = index;
+
+          });
+          if(currentIndex==1){
+            AppRoutes.cartPage(
+              context,
+              imgUrl: imgUrl,
+              imgUrlIndex: 1,
+              productName: productName,
+              color: color,
+              price: widget.modelProduct.price,
+            );          }
+        },
+        selectedItemColor: AppColors.deepPurple,
+        unselectedItemColor: AppColors.grey,
+        selectedIconTheme: IconThemeData(
+          color: AppColors.deepPurple,
+          size: 30,
+        ),
+        unselectedIconTheme: IconThemeData(
+          color: Colors.grey,
+          size: 24,
+        ),
         items: [
           BottomNavigationBarItem(icon: AppIcons.buy, label: ''),
           BottomNavigationBarItem(icon: AppIcons.buy2, label: ''),
-          BottomNavigationBarItem(icon: AppIcons.favorite, label: ''),
+          BottomNavigationBarItem(icon: AppIcons.favorite2, label: ''),
         ],
       ),
+
     );
   }
 }

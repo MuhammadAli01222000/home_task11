@@ -10,8 +10,8 @@ sealed class AppIcons{
   static const liner=Icon(Icons.linear_scale,size: 25,);
   static const star=Icon(Icons.star,color: AppColors.yellow2,);
   static const star2=Icon(Icons.star,color: AppColors.grey,);
-  static const favorite=Icon(Icons.favorite_border,color: AppColors.grey,);
-  static const favorite2=Icon(Icons.favorite,color: AppColors.red,);
-  static const buy=Icon(Icons.shopping_basket,color: AppColors.grey,);
-  static const buy2=Icon(Icons.shopping_basket_outlined,color: AppColors.grey,);
+  static const favorite=Icon(Icons.favorite_border,);
+  static const favorite2=Icon(Icons.favorite);
+  static const buy=Icon(Icons.shopping_basket);
+  static const buy2=Icon(Icons.shopping_basket_outlined);
 }
